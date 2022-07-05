@@ -5,7 +5,7 @@ WORKING_DIR=/home/xlnx/host
 
 if [ ! -f /.dockerenv ]; then
     # HOST
-    docker run -w ${WORKING_DIR} --rm -it -v $(pwd):${WORKING_DIR} ${DOCKER_IMAGE} bash -c $0
+    docker run -w ${WORKING_DIR} --rm -it -v /media:/media -v $(pwd):${WORKING_DIR} ${DOCKER_IMAGE} bash -c $0
 else
     SCRIPTS_FOLDER=/home/xlnx/docker-scripts
 
