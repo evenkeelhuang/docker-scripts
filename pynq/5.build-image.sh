@@ -1,7 +1,8 @@
 #!/bin/sh
 
 help () {
-    echo "$0 [BOARD]"
+    echo "用法: $0 [BOARD]"
+    echo "例子: $0 ZCU102"
     exit 1
 }
 
