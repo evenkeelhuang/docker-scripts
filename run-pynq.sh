@@ -5,7 +5,8 @@ WORKING_DIR=/home/xlnx/host
 
 if [ ! -f /.dockerenv ]; then
     # HOST
-    docker run -w ${WORKING_DIR} --rm -it -v /media:/media -v $(pwd):${WORKING_DIR} ${DOCKER_IMAGE} bash -c $0
+    echo "注意！因為編譯需要，容器將啟用 --privileged"
+    docker run $@ --privileged -w ${WORKING_DIR} --rm -it -v /media:/media -v $(pwd):${WORKING_DIR} ${DOCKER_IMAGE} bash -c $0
 else
     SCRIPTS_FOLDER=/home/xlnx/docker-scripts
 
