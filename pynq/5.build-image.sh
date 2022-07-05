@@ -10,4 +10,4 @@ if [ -z $1 ]; then
     help
 fi
 
-make images $@ -C PYNQ/sdbuild BOARDS=$1 PREBUILT=$(pwd)/files/focal.aarch64.2.7.0_2021_11_17.tar.gz
+make images -C PYNQ/sdbuild BOARDS=$1 PREBUILT=$(pwd)/files/focal.aarch64.2.7.0_2021_11_17.tar.gz
