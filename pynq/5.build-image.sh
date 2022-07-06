@@ -1,8 +1,8 @@
 #!/bin/sh
 
 help () {
-    echo "用法: $0 [BOARD]"
-    echo "例子: $0 ZCU102"
+    echo "用法: $0 [PYNQ DIR] [BOARD] [PREBUILT]"
+    echo "例子: $0 PYNQ ZCU102" "files/focal.aarch64.2.7.0_2021_11_17.tar.gz"
     exit 1
 }
 
@@ -10,4 +10,12 @@ if [ -z $1 ]; then
     help
 fi
 
-make images -C PYNQ/sdbuild BOARDS=$1 PREBUILT=$(pwd)/files/focal.aarch64.2.7.0_2021_11_17.tar.gz
+if [ -z $2 ]; then
+    help
+fi
+
+if [ -z $3 ]; then
+    help
+fi
+
+make $4 -C $(pwd)/$1/sdbuild BOARDS=$2 PREBUILT=$(pwd)/$3
